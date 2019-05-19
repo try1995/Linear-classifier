@@ -6,7 +6,7 @@ from time import time
 start = time()
 D = np.random.randn(1000, 500)
 hidden_layer_sizes = [500]*10
-nonlinearities = ['relu']*len(hidden_layer_sizes)
+nonlinearities = ['tanh']*len(hidden_layer_sizes)
 
 '''激活函数'''
 act = {"relu": lambda x: np.maximum(0, x), 'tanh': lambda x: np.tanh(x),
@@ -19,7 +19,7 @@ for i in range(len(hidden_layer_sizes)):
     fan_in = X.shape[1]
     fan_out = hidden_layer_sizes[i]
     '''不同的权重'''
-    W = np.random.randn(fan_in, fan_in) / np.sqrt(fan_in)
+    W = np.random.randn(fan_in, fan_out) / np.sqrt(fan_in)
     # W = np.random.randn(fan_in, fan_in) * 0.01
     # W = np.random.randn(fan_in, fan_in) / np.sqrt(fan_in/2)
 
